@@ -200,7 +200,14 @@ class SysmonDomain(Domain):
                         pages[key.strip()] = int(val)
                     except ValueError:
                         pass
-            page_size = 16384  # Apple Silicon default
+            # Parse page size from vm_stat header ("page size of NNNNN bytes")
+            page_size = 16384
+            first_line = out.split("\n")[0] if out else ""
+            if "page size of" in first_line:
+                try:
+                    page_size = int(first_line.split("page size of")[1].split("bytes")[0].strip())
+                except (ValueError, IndexError):
+                    pass
             free = pages.get("Pages free", 0)
             inactive = pages.get("Pages inactive", 0)
             speculative = pages.get("Pages speculative", 0)
