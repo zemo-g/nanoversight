@@ -58,6 +58,9 @@ nanoversight/
   run.py             CLI entry point
   domains/
     sysmon.py        System monitor (CPU, memory, disk, processes)
+    github.py        GitHub repo watcher (stars, forks, issues, traffic)
+    docker.py        Docker container health and resource usage
+    webserver.py     HTTP endpoint latency and availability
     example.py       Minimal example (directory watcher)
 ```
 
@@ -70,6 +73,16 @@ nanoversight/
 | conclusions | Extracted patterns with confidence, evidence, settled flag |
 | questions | Active question lifecycle (times_asked, retired) |
 | actions | Recommendations attempted + results |
+
+## Built-in domains
+
+| Domain | What it watches | Command |
+|--------|----------------|---------|
+| `sysmon` | CPU, memory, disk, swap, processes | `python3 run.py --domain sysmon` |
+| `github` | Stars, forks, issues, PRs, traffic | `NANOVERSIGHT_GITHUB_REPO=owner/repo python3 run.py --domain github` |
+| `docker` | Container health, CPU/memory per container | `python3 run.py --domain docker` |
+| `webserver` | HTTP status, latency, availability | `NANOVERSIGHT_URLS=https://example.com python3 run.py --domain webserver` |
+| `example` | Directory file changes (template) | `python3 run.py --domain example` |
 
 ## Write your own domain
 
