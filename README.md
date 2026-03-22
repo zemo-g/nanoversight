@@ -1,5 +1,10 @@
 # nanoversight
 
+[![tests](https://github.com/zemo-g/nanoversight/actions/workflows/test.yml/badge.svg)](https://github.com/zemo-g/nanoversight/actions)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](#)
+
 Autonomous oversight for any system. One file, one loop, one LLM.
 
 Point it at anything — your server, your application, your infrastructure — and it starts thinking. It observes metrics, asks questions, forms conclusions, and grows new questions it didn't start with. Like having a junior engineer watching your dashboards 24/7, except it never sleeps and it gets smarter over time.
